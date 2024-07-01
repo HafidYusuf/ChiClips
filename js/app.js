@@ -249,3 +249,119 @@ ScrollTrigger.batch('.showcase', {
     })
     }
 });
+
+
+
+
+$('.switch').click(function(){
+    $(this).toggleClass('switch-active')
+})
+
+let videoPrice = 4.5
+
+$(".motion").click(function(e) {    
+    e.preventDefault();
+    $(".motion").toggleClass("motionactive")
+
+    if(document.querySelector(".motion").classList.contains("motionactive")) {
+        videoPrice+=3
+    }
+    else {
+        videoPrice-=3
+    }
+    $('.video-price').html(videoPrice)
+})
+
+$(".production").click(function(e) {    
+    e.preventDefault();
+    $(".production").toggleClass("productionactive")
+
+    if(document.querySelector(".production").classList.contains("productionactive")) {
+        videoPrice+=7.5
+    }
+    else {
+        videoPrice-=7.5
+    }
+    $('.video-price').html(videoPrice)
+})
+
+
+let photoPrice = 3.5
+
+$(".model").click(function(e) {    
+    e.preventDefault();
+    $(".model").toggleClass("modelactive")
+
+    if(document.querySelector(".model").classList.contains("modelactive")) {
+        photoPrice+=5.5
+    }
+    else {
+        photoPrice-=5.5
+    }
+    $('.photo-price').html(photoPrice)
+})
+
+$(".studio").click(function(e) {    
+    e.preventDefault();
+    $(".studio").toggleClass("studioactive")
+
+    if(document.querySelector(".studio").classList.contains("studioactive")) {
+        photoPrice+=3.5
+    }
+    else {
+        photoPrice-=3.5
+    }
+    $('.photo-price').html(photoPrice)
+})
+
+
+let graphicPrice = 4.5
+
+$(".prints").click(function(e) {    
+    e.preventDefault();
+    $(".prints").toggleClass("printsactive")
+
+    if(document.querySelector(".prints").classList.contains("printsactive")) {
+        graphicPrice+=5.5
+    }
+    else {
+        graphicPrice-=5.5
+    }
+    $('.graphic-price').html(graphicPrice)
+})
+
+$(".three-d").click(function(e) {    
+    e.preventDefault();
+    $(".three-d").toggleClass("three-d-active")
+
+    if(document.querySelector(".three-d").classList.contains("three-d-active")) {
+        graphicPrice+=3
+    }
+    else {
+        graphicPrice-=3
+    }
+    $('.graphic-price').html(graphicPrice)
+})
+
+let allAdditional = 10
+let allAdditionalBefore = 12.5
+let allAdditionalSave = 2.5
+
+$(".all-additional").click(function(e) {    
+    e.preventDefault();
+    $(".all-additional").toggleClass("all-additionalactive")
+
+    if(document.querySelector(".all-additional").classList.contains("all-additionalactive")) {
+        allAdditional+=20
+        allAdditionalBefore+=28
+        allAdditionalSave=10.5
+    }
+    else {
+        allAdditional-=20
+        allAdditionalBefore-=28
+        allAdditionalSave=2.5
+    }
+    $('.all-price').html(allAdditional)
+    $('.all-price-before').html(allAdditionalBefore)
+    $('.all-price-save').html(allAdditionalSave)
+})
