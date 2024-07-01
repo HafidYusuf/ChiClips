@@ -92,31 +92,20 @@ a.underline:hover::after {
 }
 
 nav {
-  width: 100%;
+  width: 90%;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  width: 100%;
   z-index: 99;
-  padding: 28px 5vw;
+  padding: 14px 24px;
   transition: all 1s ease-out;
   box-sizing: border-box;
-  background: linear-gradient(rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 50%);
-}
-nav::after {
-  content: "";
-  top: 0;
-  left: 0;
-  position: fixed;
-  z-index: -1;
-  width: 100%;
-  height: 96px;
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
-  -webkit-mask: linear-gradient(rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%);
-          mask: linear-gradient(rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%);
+  background: white;
+  border-radius: 24px;
+  border: solid 3px var(--black);
+  margin: 14px 5vw 0px 5vw;
 }
 nav .menu {
   display: inline-flex;
@@ -130,10 +119,13 @@ nav .menu {
 nav .nav-cta {
   background: var(--blue);
   color: var(--white);
-  transition: all 1s cubic-bezier(0.21, 0.9, 0.22, 1);
   padding: 14px;
   letter-spacing: 0.5px;
   border-radius: 12px;
+}
+nav .nav-cta:hover {
+  animation: bouncingButton 1.6s ease-out;
+  background: var(--pink);
 }
 nav svg path, nav svg stroke {
   transition: all 1s cubic-bezier(0.21, 0.9, 0.22, 1);
@@ -160,9 +152,23 @@ nav svg path, nav svg stroke {
   transition: transform 1s cubic-bezier(0.21, 0.9, 0.22, 1);
 }
 
+@keyframes bouncingButton {
+  10% {
+    transform: scaleX(1.2) scaleY(0.8);
+  }
+  20% {
+    transform: scaleX(0.8) scaleY(1.2);
+  }
+  25% {
+    transform: scaleX(1.2) scaleY(0.8);
+  }
+  30% {
+    transform: scaleX(1) scaleY(1);
+  }
+}
 .hero {
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -177,6 +183,14 @@ nav svg path, nav svg stroke {
   width: 740px;
   text-align: center;
   margin-bottom: 80px;
+}
+.hero h1 .word {
+  -webkit-clip-path: inset(-100% 0 0 0);
+          clip-path: inset(-100% 0 0 0);
+}
+.hero p .word {
+  -webkit-clip-path: inset(-100% 0 0 0);
+          clip-path: inset(-100% 0 0 0);
 }
 
 .clients {
@@ -280,6 +294,7 @@ h3 {
   box-sizing: border-box;
   overflow: hidden;
   transition: all 1s cubic-bezier(0.17, 0.84, 0.44, 1);
+  position: relative;
 }
 
 .expertise-description {
@@ -309,14 +324,18 @@ h3 {
 }
 
 .showcase {
-  width: 100%;
+  width: 105vw;
   height: 50vh;
   box-sizing: border-box;
   display: flex;
   gap: 24px;
-  margin: 80px 0px 0px 0px;
+  margin-top: 80px;
+  margin-left: -5vw;
   padding-bottom: 48px;
-  overflow: scroll;
+  padding-top: 24px;
+  padding-left: 5vw;
+  overflow-x: scroll;
+  overflow-y: visible;
 }
 
 .work {
@@ -383,6 +402,9 @@ h3 {
   background: var(--white);
   color: var(--black);
 }
+.blue-background .semicircle path {
+  fill: white;
+}
 
 .yellow-background {
   background: var(--yellow);
@@ -398,6 +420,9 @@ h3 {
   background: var(--black);
   color: var(--white);
 }
+.yellow-background .semicircle path {
+  fill: white;
+}
 
 .orange-background {
   background: var(--orange);
@@ -412,6 +437,9 @@ h3 {
 .orange-background .big-button:hover .big-button-reset-state {
   background: var(--white);
   color: var(--black);
+}
+.orange-background .semicircle path {
+  fill: white;
 }
 
 .process {
@@ -591,6 +619,9 @@ h3 {
   position: relative;
   background: var(--white);
 }
+.pricing p {
+  font-size: 14px;
+}
 .pricing h2 {
   margin-bottom: 40px;
 }
@@ -606,6 +637,7 @@ h3 {
   background: white;
   border-radius: 24px;
   flex-grow: 1;
+  flex-basis: 0;
   box-sizing: border-box;
 }
 .price h3 {
@@ -618,8 +650,9 @@ h3 {
   border-radius: 30px;
   position: relative;
   height: 100%;
-  flex-grow: 1;
+  flex-grow: 1.19;
   z-index: 1;
+  flex-basis: 0;
 }
 .special-price .special-price-label {
   border: solid 6px var(--yellow);
@@ -709,6 +742,13 @@ h3 {
   font-weight: 600;
   text-align: center;
 }
+.price-cta span {
+  position: relative;
+}
+.price-cta:hover {
+  background: var(--blue);
+  animation: bouncingButton 1.6s ease-out;
+}
 
 .price-line {
   width: 100%;
@@ -777,7 +817,7 @@ h3 {
     padding: 120px 5vw 80px 5vw;
   }
   .herologo {
-    opacity: 0.2;
+    opacity: 0.2 !important;
   }
   .eyes {
     display: none;
@@ -844,11 +884,12 @@ h3 {
   .menu {
     flex-direction: column;
     position: absolute;
-    width: 90%;
+    width: 100%;
+    margin-left: -5%;
     background: white;
     box-sizing: border-box;
     padding: 24px 0px;
-    top: -150px;
+    top: -170px;
     border-radius: 24px;
     border: solid 2px var(--black);
   }
@@ -863,12 +904,18 @@ h3 {
   #burger-button {
     margin-left: 6px;
   }
+  .hero {
+    justify-content: flex-start;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
   .check {
     flex: 47% 0 0;
   }
   .showcase {
     height: 35vh;
-    margin: 42px 0px 80px 0px;
+    margin-top: 42px;
+    margin-bottom: 80px;
   }
   .step {
     gap: 24px;
@@ -909,4 +956,51 @@ h3 {
 }
 .activate path {
   transform: rotate(45deg);
+}
+
+.semicircle {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0% 0%;
+}
+
+.expertise-star-big {
+  position: absolute;
+  top: 70px;
+  right: 10%;
+  width: 42px;
+  height: 42px;
+  animation: shiningStars 3s forwards infinite linear;
+  transform: scale(0) rotate(0deg);
+}
+
+.expertise-star-small {
+  position: absolute;
+  top: 120px;
+  right: 7%;
+  width: 24px;
+  height: 24px;
+  animation: shiningStars 3s forwards infinite linear;
+  animation-delay: 0.5s;
+  transform: scale(0) rotate(0deg);
+}
+
+@keyframes shiningStars {
+  20% {
+    transform: scale(0) rotate(0deg);
+  }
+  40% {
+    transform: scale(1) rotate(180deg);
+  }
+  60% {
+    transform: scale(0) rotate(360deg);
+  }
+}
+.magnetic-hover {
+  animation: none;
+}
+.magnetic-hover:hover {
+  background: var(--pink);
 }/*# sourceMappingURL=style.css.map */
